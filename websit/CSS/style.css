@@ -51,10 +51,6 @@ body {
 	display: none;
 }
 
-.header-cta {
-	display: none;
-}
-
 .main-nav {
 	display: flex;
 	gap: 30px;
@@ -590,20 +586,6 @@ footer {
 		background: #555;
 		border-radius: 4px;
 		transition: transform 0.2s ease, opacity 0.2s ease;
-	}
-
-	.header-cta {
-		display: block;
-		order: 2;
-		margin-left: auto;
-		padding: 10px 20px;
-		border-radius: 999px;
-		background: #c5ad68;
-		color: white;
-		font-size: 0.95rem;
-		font-weight: 700;
-		text-decoration: none;
-		white-space: nowrap;
 	}
 
 	.menu-toggle:checked ~ nav {
