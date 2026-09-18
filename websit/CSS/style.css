@@ -46,6 +46,15 @@ body {
 	z-index: 1;
 }
 
+.menu-toggle,
+.menu-button {
+	display: none;
+}
+
+.header-cta {
+	display: none;
+}
+
 .main-nav {
 	display: flex;
 	gap: 30px;
@@ -519,9 +528,9 @@ footer {
 
 @media (max-width: 600px) {
 	.site-header {
-		padding: 16px;
-		align-items: flex-start;
-		flex-direction: column;
+		padding: 14px 16px;
+		align-items: center;
+		flex-direction: row;
 		gap: 12px;
 	}
 
@@ -529,21 +538,90 @@ footer {
 		max-width: 180px;
 	}
 
-	.site-header nav,
-	.main-nav {
-		width: 100%;
+	.site-header nav {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background: var(--surface);
+		border-bottom: 1px solid var(--line);
+		box-shadow: 0 12px 20px rgba(18, 61, 89, 0.12);
+		visibility: hidden;
+		opacity: 0;
+		transform: translateY(-8px);
+		transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 	}
 
 	.main-nav {
-		gap: 8px 14px;
-		flex-wrap: wrap;
-		justify-content: flex-start;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0;
+		padding: 10px 16px;
 	}
 
 	.main-nav a {
 		display: block;
 		font-size: 0.95rem;
-		padding: 4px 0;
+		padding: 10px 4px;
+	}
+
+	.menu-toggle {
+		display: block;
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	.menu-button {
+		display: flex;
+		order: 3;
+		width: 44px;
+		height: 44px;
+		padding: 10px 7px;
+		flex-direction: column;
+		justify-content: space-around;
+		cursor: pointer;
+	}
+
+	.menu-button span {
+		display: block;
+		width: 30px;
+		height: 4px;
+		background: #555;
+		border-radius: 4px;
+		transition: transform 0.2s ease, opacity 0.2s ease;
+	}
+
+	.header-cta {
+		display: block;
+		order: 2;
+		margin-left: auto;
+		padding: 10px 20px;
+		border-radius: 999px;
+		background: #c5ad68;
+		color: white;
+		font-size: 0.95rem;
+		font-weight: 700;
+		text-decoration: none;
+		white-space: nowrap;
+	}
+
+	.menu-toggle:checked ~ nav {
+		visibility: visible;
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	.menu-toggle:checked ~ .menu-button span:nth-child(1) {
+		transform: translateY(10px) rotate(45deg);
+	}
+
+	.menu-toggle:checked ~ .menu-button span:nth-child(2) {
+		opacity: 0;
+	}
+
+	.menu-toggle:checked ~ .menu-button span:nth-child(3) {
+		transform: translateY(-10px) rotate(-45deg);
 	}
 
 	.page-title {
@@ -602,9 +680,7 @@ footer {
 	}
 
 	.main-nav {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 6px 12px;
+		grid-template-columns: 1fr;
 	}
 
 	.main-nav a {
