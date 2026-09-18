@@ -51,7 +51,8 @@ websit/
 **Purpose:** Main landing page to introduce the company and encourage visitors to explore further.
 
 **Key Features:**
-- Logo and navigation menu in header
+- Logo and responsive navigation menu in header
+- CSS-only hamburger menu for mobile devices; no JavaScript required
 - Hero section with company tagline and call-to-action button
 - Company introduction section
 - Footer with copyright information
@@ -95,6 +96,8 @@ websit/
 
 **Responsive Design:** Services grid collapses to single column on mobile devices.
 
+**Mobile Navigation:** On smaller screens, the desktop links are replaced by a hamburger menu. The menu opens and closes with a CSS checkbox toggle, so it remains functional without JavaScript.
+
 ---
 
 ### 4. Enquiry Form Page (enquiry.html)
@@ -106,7 +109,7 @@ websit/
 | First Name | Text | Yes |
 | Last Name | Text | Yes |
 | Email Address | Email | Yes |
-| Phone Number | Phone | No |
+| Phone Number | Tel | No |
 | Company/Organization | Text | No |
 | Service/Product Interest | Dropdown | Yes |
 | Message/Enquiry Details | Textarea | Yes |
@@ -181,7 +184,7 @@ Each HTML file includes:
 - **Global Styles** section (body, fonts)
 - **Component sections** with organized comments
 - **Responsive Design** with media queries
-- **Color consistency** throughout (Blue #0066cc, Red #ff6b6b, Gray #666)
+- **Color consistency** throughout using CSS variables for blue, coral, ink, muted text, and surface colors
 - **Hover effects** for interactive elements
 - **Transition effects** for smooth interactions
 
@@ -210,18 +213,19 @@ All pages contain a consistent navigation menu with links to:
 ### Color Scheme
 | Color | Usage |
 |-------|-------|
-| #0066cc (Blue) | Primary color, headers, links |
-| #ff6b6b (Red) | Call-to-action buttons, accents |
-| #333 (Dark Gray) | Text, headings |
-| #666 (Medium Gray) | Body text |
-| #f8f9fa (Light Gray) | Backgrounds, cards |
+| #075985 (Blue) | Primary color, headers, links |
+| #0c4a6e (Dark Blue) | Footer and dark backgrounds |
+| #f97316 (Coral) | Call-to-action buttons and accents |
+| #18324b (Ink) | Main text and navigation |
+| #60758a (Muted Blue-Gray) | Body text |
+| #f3f7fa (Soft Surface) | Backgrounds and cards |
 | White | Text on colored backgrounds |
 
 ### Responsive Design
 - **Desktop:** Full-width layouts with multi-column grids
 - **Tablet:** Reduced multi-column layouts
-- **Mobile:** Stacked navigation, cards, forms, and map frames
-- Responsive breakpoints at 1024px, 900px, and 600px
+- **Mobile:** CSS-only hamburger navigation, stacked cards, forms, and map frames
+- Responsive breakpoints at 1024px, 900px, 600px, and 380px
 - Prevents horizontal page overflow on small screens
 - Viewport meta tag for proper mobile rendering
 
@@ -415,7 +419,8 @@ Currently posts to "#" - integration needed:
 - Line endings: LF (Unix style)
 - Indentation: 4 spaces (not tabs)
 - CSS is centralized in `CSS/style.css` and linked from every HTML page
-- JavaScript: Not used (pure HTML/CSS solution)
+- JavaScript: Not used; the website is a pure HTML/CSS solution
+- Mobile menu: Implemented with a CSS checkbox toggle
 
 ---
 
@@ -428,5 +433,5 @@ For questions or modifications, refer to the inline comments in each HTML file o
 ---
 
 **Last Updated:** 2026-09-18  
-**Version:** 1.1  
+**Version:** 1.2  
 **Status:** Ready for Deployment
